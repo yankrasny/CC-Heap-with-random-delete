@@ -1,3 +1,5 @@
+Updated: needed to do separate compilation in order to add the following functionality. When incrementing or decrementing priority, you must reheapify (asymptotically this is log(n), but if priorities are well spread, then it'll rarely take that long). Anyway I added a pointer to the heap for each heap entry, so we have a circular association. So we need the header files.
+
 This header contains two functional classes and a test class. The two functional classes are HeapEntry and RandomHeap. Currently neither is templated, perhaps for lack of time and energy (apparently, a master's thesis is no joke). The main contribution here is the ability to delete  an arbitrary element from the heap given a reference to it. This is accomplished by storing for each HeapEntry its position in the heap. The position is updated during swaps (in heapifyUp and heapifyDown) so that a HeapEntry always stores its correct position. The function deleteRandom(int pos) swaps the element at position pos with the last element, and then bubbles down from position pos. 
 
 This software is provided under the MIT license. (See LICENSE) 
